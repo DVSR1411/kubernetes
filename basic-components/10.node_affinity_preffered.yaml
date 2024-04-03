@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pritam-node-affinity-preferred
+spec:
+  affinity:
+    nodeAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 1
+        preference:
+          matchExpressions:
+          - key: memory
+            operator: In
+            values:
+            - high
+            - medium
+  containers:
+  - name: pritam-affinity-prefferd
+    image: nginx

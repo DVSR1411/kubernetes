@@ -1,0 +1,10 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: mydb
+  namespace: pritam
+spec:
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 9377

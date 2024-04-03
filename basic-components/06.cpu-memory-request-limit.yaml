@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pritam-pod
+spec:
+  containers:
+  - name: pritam-container
+    image: nginx
+    resources:
+      requests:
+        memory: "640Mi"
+        cpu: "0.5"
+      limits:
+        memory: "12800Mi"
+        cpu: "1"

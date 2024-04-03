@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blue-green-v2
+  labels:
+    app: blue-green
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: blue-green
+      version: v2.0.0
+  template:
+    metadata:
+      labels:
+        app: blue-green
+        version: v2.0.0
+    spec:
+      containers:
+      - name: blue-green
+        image: deekshithsn/k8s-deployment-strategies
+        ports:
+        - name: http
+          containerPort: 8080
+        - name: probe
+          containerPort: 8086
+        env:
+        - name: VERSION
+          value: v2.0.0
+        livenessProbe:
+          httpGet:
+            path: /live
+            port: probe
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: probe
+          periodSeconds: 5
