@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: demopod
+  labels:
+    app: myapp
+    type: frontend
+spec:
+  containers: #Array
+    - name: cont1
+      image: nginx:alpine

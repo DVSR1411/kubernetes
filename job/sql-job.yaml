@@ -1,0 +1,22 @@
+apiVersion: batch/v1   
+kind: Job                    
+metadata:
+ name: my-sql-dump
+spec:
+ ttlSecondsAfterFinished: 10
+ template:
+   metadata:
+     name: my-sql-dump
+   spec:
+     containers:
+     - name: my-sql-seed
+       image: jlsrly/mysql-git                  
+       command:
+         - 'bash'
+         - '-c'
+         - |
+           git clone https://github.com/devops-pritam/k8s.git
+           mysql -h mysql -u root -padmin -e 'CREATE DATABASE IF NOT EXISTS test';
+           mysql -h mysql -u root -padmin test < k8s/job/mysql.sql
+           sleep 20
+     restartPolicy: OnFailure  

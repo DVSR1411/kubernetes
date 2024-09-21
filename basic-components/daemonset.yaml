@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: pritam-daemonset
+spec:
+  selector:
+    matchLabels:
+      name: pritam-all-pods
+  template:
+    metadata:
+      labels:
+        name: pritam-all-pods
+    spec:
+      containers:
+      - name: pritam-pods
+        image: nginx
