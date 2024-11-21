@@ -66,7 +66,7 @@ sudo dnf install helm -y
 ```sh
 helm repo add stable https://charts.helm.sh/stable
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-helm search repo prometheus-community
+helm search repo prometheus-community  #To find kube-prometheus-stack
 helm install stable prometheus-community/kube-prometheus-stack -n prometheus
 ```
 
