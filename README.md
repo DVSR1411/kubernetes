@@ -58,8 +58,10 @@ kubectl create namespace prometheus
 
 ### Download helm:
 ```sh
-choco install kubernetes-helm -y
-sudo dnf install helm -y
+choco install kubernetes-helm -y #For Windows
+```
+```sh
+sudo dnf install helm -y #For linux
 ```
 
 ### Install helm packages:
