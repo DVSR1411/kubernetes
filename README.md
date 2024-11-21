@@ -29,3 +29,6 @@ helm install stable prometheus-community/kube-prometheus-stack -n prometheus
 ### Change service type LoadBalancer for prometheus and grafana
 kubectl edit svc stable-kube-prometheus-sta-prometheus -n prometheus
 kubectl edit svc stable-grafana -n prometheus
+### Login to prometheus and grafana
+Open the grafana using loadbalancer ipaddr username: admin, password: prom-operator
+Open the grafana using loadbalancer ipaddr:9090
