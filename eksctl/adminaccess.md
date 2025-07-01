@@ -1,6 +1,6 @@
 ## Edit kubernetes configmap
 ```sh
-kubectl apply -n kube-system configmap/aws-auth
+kubectl edit -n kube-system configmap/aws-auth
 ```
 ## In the file add mapUsers below mapRoles as
 ```sh
